@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   viewBox="0 -100 512.00002 512"
+   version="1.1"
+   id="svg4"
+   sodipodi:docname="correo-electronico.svg"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)">
+  <metadata
+     id="metadata10">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs8" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1600"
+     inkscape:window-height="837"
+     id="namedview6"
+     showgrid="false"
+     inkscape:zoom="1.3085938"
+     inkscape:cx="256"
+     inkscape:cy="256"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg4" />
+  <path
+     d="m494.535156 0h-477.070312c-9.628906 0-17.464844 7.835938-17.464844 17.464844v276.453125c0 9.628906 7.835938 17.460937 17.464844 17.460937h477.070312c9.628906 0 17.464844-7.832031 17.464844-17.460937v-276.453125c0-9.628906-7.835938-17.464844-17.464844-17.464844zm-464.503906 43.027344 143.507812 95.382812-143.507812 124.921875zm225.96875 114.128906-191.265625-127.125h382.53125zm-56.523438-1.511719 46.855469 31.144531c2.9375 1.953126 6.300781 2.929688 9.667969 2.929688 3.363281 0 6.730469-.980469 9.667969-2.929688l46.855469-31.144531 144.402343 125.703125h-401.851562zm138.984376-17.238281 143.507812-95.382812v220.308593zm0 0"
+     id="path2"
+     style="fill:#004b70;fill-opacity:1" />
+</svg>
