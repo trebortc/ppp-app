@@ -90,7 +90,7 @@ class SubjectController extends Controller
         $topics = [];
         if ($request->get('topics') !== null) {
             foreach ($request->get('topics') as $topic) {
-                $topics[] = new Topic(['name' => $topic]);
+                $topics[] = new Topic(['name' => $topic, 'status' => 'active']);
             }
         }
 
