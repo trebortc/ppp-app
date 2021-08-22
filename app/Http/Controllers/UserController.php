@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\User as UserResource;
+use App\Mail\StudentUserTemporyPasswordMail;
+use App\Rules\MatchOldPassword;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use JWTAuth;
 
@@ -145,5 +149,56 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         //
+    }
+
+    public function sendPasswordUser(Request $request){
+        $request->validate([
+            'email' => 'required|string|max:255',
+        ]);
+
+        $user = User::where('email', $request->get('email'))->firstOrFail();
+
+        if($user->email_verified_at != null){
+            return response()->json('password_already_sent',202);
+        }
+
+        $plain_password = Str::random(8);
+        $user->password = Hash::make($plain_password);
+        $user->save();
+
+
+        $informacion = [
+            'email' => $user->email,
+            'password' => $plain_password,
+        ];
+
+        Mail::to([$user->email])
+            ->send(new StudentUserTemporyPasswordMail($informacion));
+
+        return response()->json('password_send', 200);
+    }
+
+    /**
+     * Update user password in storage.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param \App\User $user
+     * @return \Illuminate\Http\Response
+     */
+    public function changedPasswordUser(Request $request, User $user){
+
+        $this->authorize('update', $user);
+
+        $request->validate([
+            'currentPassword' => ['required', new MatchOldPassword()],
+            'password' => ['required'],
+            'confirmPassword' => ['same:password'],
+        ]);
+
+        $user->password = Hash::make($request->get('password'));
+        $user->email_verified_at = now();
+        $user->save();
+
+        return response()->json(new UserResource($user), 200);
     }
 }

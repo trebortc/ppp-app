@@ -16,13 +16,7 @@ class Administrative extends JsonResource
     {
         return [
             'administrative_id' => $this->id,
-            'administrative_name' => $this->user->name,
-            'administrative_lastname' => $this->user->lastname,
-            'administrative_email' => $this->user->email,
-            'administrative_phone' => $this->user->phone,
-            'administrative_mobile' => $this->user->mobile,
-            'administrative_sex' => $this->user->sex,
-            'administrative_status' => $this->user->status,
+            'administrative' => $this->user,
             'faculty_id' => $this->faculty_id,
             'faculty' => $this->faculty->name,
         ];

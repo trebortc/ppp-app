@@ -20,12 +20,19 @@
 
 Route::post('register', 'UserController@register');
 Route::post('login', 'UserController@authenticate');
+Route::post('email', 'UserController@sendPasswordUser');
 //Route::get('articles', 'ArticleController@index');
 //Route::get('categories', 'CategoryController@index');
 
 Route::group(['middleware' => ['jwt.verify']], function () {
     Route::get('user', 'UserController@getAuthenticatedUser');
     Route::post('logout', 'UserController@logout');
+
+    /**
+     * USER
+     */
+    Route::put('user/{user}', 'UserController@changedPasswordUser');
+    // FIN USER
 
     /**
      * CRUD STUDENT
