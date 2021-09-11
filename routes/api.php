@@ -62,6 +62,9 @@ Route::group(['middleware' => ['jwt.verify']], function () {
     Route::put('internships/{internship}/commission', 'InternshipController@setCommissionSection');
     Route::put('internships/{internship}/registration', 'InternshipController@registerInternship');
 
+    //STUDENT REPORT
+    Route::get('internships/{internship}/report', 'InternshipController@report');
+
     // FOLLOWUPS
     Route::get('internships/{internship}/followups', 'FollowupController@index');
     Route::post('internships/{internship}/followups', 'FollowupController@store');

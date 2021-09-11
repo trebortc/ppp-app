@@ -466,4 +466,51 @@ class InternshipController extends Controller
     {
         //
     }
+
+
+    /**
+     * Display the student reports.
+     *
+     * @param \App\Internship $internship
+     * @return JsonResponse pdf
+     * @throws AuthorizationException
+     */
+    public function report(Internship $internship)
+    {
+        //dd($internship->usefulTopics->groupBy('subject_id'));
+        //$this->authorize('view', $internship);
+        $internshipData = $internship->toArray();
+        $useful_topics = $internship->usefulTopics->groupBy('subject_id');
+        $student = $internship->student->user->toArray();
+        $carrer = $internship->student->career->toArray();
+        $representative = $internship->representative->user->toArray();
+        $representative_company = $internship->representative->toArray();
+        $company = $internship->representative->company->toArray();
+        $teacher = $internship->teacher->user->toArray();
+        $teacher_info = $internship->teacher->toArray();
+        $followups = $internship->followups->toArray();
+
+        $data = ["internship"=>$internshipData,
+                "useful_topics"=>$useful_topics,
+                "student"=>$student,
+                "student_email"=> $internship->student->user->email,
+                "carrer"=>$carrer,
+                "representative"=>$representative,
+                "representative_company"=>$representative_company,
+                "company"=>$company,
+                "teacher"=>$teacher,
+                "teacher_info"=>$teacher_info,
+                "followups"=>$followups
+        ];
+
+        $pdf = PDF::loadView('reports.studentReport', $data);
+
+        Mail::send('reports.studentReport', $data, function($message)use($data, $pdf) {
+            $message->to([$data["student_email"]])
+                ->subject("Reporte Estudiante")
+                ->attachData($pdf->output(), "reporte_practica_estudiante.pdf");
+        });
+
+        return response()->json(new InternshipResource($internship), 200);
+    }
 }
