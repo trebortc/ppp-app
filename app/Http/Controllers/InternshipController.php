@@ -22,6 +22,7 @@ use App\Mail\NotifyTeacherTeacherAssignmentMail;
 use App\RecommendedTopic;
 use App\Topic;
 use App\User;
+use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
