@@ -14,11 +14,19 @@
         .table_defaul td, th {
             border: 1px solid #dddddd;
         }
+        #logo{ 
+	        position:fixed; 
+	        top: 4px;
+	        left: 10px; 
+        } 
     </style>
 </head>
 <body>
 <div class="container">
     <!--CABECERA-->
+    <div id="logo"> 
+        <img src="{{env('APP_URL').'/images/logo_epnSin.svg'}}" class="logo" alt="Logo EPN, escudo" style="width: 80px;">
+    </div>
     <div class="row">
         <p style="font-family: Calibri; font-size: 11px; font-weight: bold; text-align: right;" >FORMULARIO F_AA_119</p>
         <p>
