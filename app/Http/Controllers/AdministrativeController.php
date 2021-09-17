@@ -14,7 +14,7 @@ class AdministrativeController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
+     * hi
      * @return JsonResponse
      */
     public function index()
