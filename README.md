@@ -6,7 +6,7 @@
 ## Descipción
 Es un proyecto que ayuda a la automatización de los procesos de prácticas y pasantias de la Escuela de Formación de Tecnologos (ESFOT); en el que participan estudiantes, profesores, jefes de empresa, administrativos y miembros comisión.
 
-- [Accesos sistema web](https://ppp-front.vercel.app/).
+- [Acceso sistema web](https://ppp-front.vercel.app/).
 
 ## DOCUMENTACIÖN
 
