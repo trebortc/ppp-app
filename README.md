@@ -7,11 +7,18 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-## About Laravel
+## PROYECTO PRÁCTICAS PREPROFESIONALES Y PASANTÍAS ESFOT
+## BACKEND
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Descipción
+Es un proyecto que ayuda a la automatización de los procesos de prácticas y pasantias de la Escuela de Formación de Tecnologos (ESFOT); en el que participan estudiantes, profesores, jefes de empresa, administrativos y miembros comisión.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
+- [Accesos sistema web](https://ppp-front.vercel.app/).
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE)
+
+## VIDEO EXPLICATIVO DEL SISTEMA WEB
+
+
 - [Powerful dependency injection container](https://laravel.com/docs/container).
 - Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
 - Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
