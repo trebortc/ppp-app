@@ -158,29 +158,30 @@ class UserController extends Controller
 
         try {
             $user = User::where('email', $request->get('email'))->first();    
+
+            if($user->email_verified_at != null){
+                return response()->json(['message' => 'password_already_sent'], 202);
+            }
+
+            $plain_password = Str::random(8);
+            $user->password = Hash::make($plain_password);
+            $user->save();
+
+
+            $informacion = [
+                'email' => $user->email,
+                'password' => $plain_password,
+            ];
+
+            Mail::to([$user->email])
+                ->send(new StudentUserTemporyPasswordMail($informacion));
+
+            return response()->json(['message' => 'password_send'], 200);
         } catch (JWTException $e) {
             return response()->json(['message' => 'error_found'], 500);
+        } catch (Exception $e){
+            return response()->json(['message' => 'error_found'], 500);
         }
-
-        if($user->email_verified_at != null){
-            return response()->json(['message' => 'password_already_sent'], 202);
-        }
-
-        $plain_password = Str::random(8);
-        $user->password = Hash::make($plain_password);
-        $user->save();
-
-
-        $informacion = [
-            'email' => $user->email,
-            'password' => $plain_password,
-        ];
-
-        Mail::to([$user->email])
-            ->send(new StudentUserTemporyPasswordMail($informacion));
-
-        return response()->json(['message' => 'password_send'], 200);
-        
     }
 
     /**
