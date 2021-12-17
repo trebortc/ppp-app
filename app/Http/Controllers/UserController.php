@@ -177,7 +177,6 @@ class UserController extends Controller
                 ->send(new StudentUserTemporyPasswordMail($informacion));
 
             return response()->json(['message' => 'password_send'], 200);
-        }
         } catch (JWTException $e) {
             return response()->json(['message' => 'error_found'], 500);
         }
