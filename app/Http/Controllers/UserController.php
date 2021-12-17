@@ -157,7 +157,7 @@ class UserController extends Controller
         ]);
 
         try {
-            $user = User::where('email', $request->get('email'))->firstOrFail();    
+            $user = User::where('email', $request->get('email'))->first();    
 
             if($user->email_verified_at != null){
                 return response()->json(['message' => 'password_already_sent'], 202);
