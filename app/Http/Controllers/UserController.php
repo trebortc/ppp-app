@@ -158,6 +158,10 @@ class UserController extends Controller
 
         try {
             $user = User::where('email', $request->get('email'))->first();    
+             
+            if(!isset($user)){
+                return response()->json(['message' => 'error_found'], 500);
+            }
 
             if($user->email_verified_at != null){
                 return response()->json(['message' => 'password_already_sent'], 202);
@@ -179,7 +183,7 @@ class UserController extends Controller
             return response()->json(['message' => 'password_send'], 200);
         } catch (JWTException $e) {
             return response()->json(['message' => 'error_found'], 500);
-        } catch (Exception $e){
+        } catch (Exception $ea){
             return response()->json(['message' => 'error_found'], 500);
         }
     }
